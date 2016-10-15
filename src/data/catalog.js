@@ -1,7 +1,7 @@
 module.exports = {
    "courses":[
       {
-         "id":0,
+         "id":100,
          "name":"Introduction to Basket Weaving",
          "author":"John Doe",
          "time":[
@@ -22,7 +22,7 @@ module.exports = {
          ]
       },
       {
-         "id":1,
+         "id":101,
          "name":"Advanced Theoritical Metaphysics",
          "author":"Jane Doerson",
          "time":[
@@ -41,7 +41,7 @@ module.exports = {
          ]
       },
       {
-         "id":2,
+         "id":102,
          "name":"Name of course 1",
          "author":"John Doe",
          "time":[
@@ -62,7 +62,7 @@ module.exports = {
          ]
       },
       {
-         "id":3,
+         "id":103,
          "name":"Name of course 2, the second one",
          "author":"Matthius Jeromimiahiarson Doe",
          "time":[
@@ -83,7 +83,7 @@ module.exports = {
          ]
       },
       {
-         "id":4,
+         "id":104,
          "name":"Remedial Breathing",
          "author":"Stella Ahonxslceoausnoenthujlcoegoueouos",
          "time":[
@@ -106,7 +106,7 @@ module.exports = {
          ]
       },
       {
-         "id":5,
+         "id":105,
          "name":"Finance for Dummies",
          "author":"Ken Bernanbe",
          "time":[
@@ -127,7 +127,7 @@ module.exports = {
          ]
       },
       {
-         "id":6,
+         "id":106,
          "name":"Dummies for Finance",
          "author":"Boyd Lankenfein",
          "time":[
@@ -146,7 +146,7 @@ module.exports = {
          ]
       },
       {
-         "id":7,
+         "id":107,
          "name":"Machine Teaching",
          "author":"Joanna Ng",
          "time":[
@@ -167,7 +167,7 @@ module.exports = {
          ]
       },
       {
-         "id":8,
+         "id":108,
          "name":"Art of the Deal",
          "author":"Donald J Duck",
          "time":[
@@ -188,7 +188,7 @@ module.exports = {
          ]
       },
       {
-         "id":9,
+         "id":109,
          "name":"Massage Therapy",
          "author":"James Jones",
          "time":[

@@ -1,17 +1,8 @@
-import { combineReducers } from 'redux';
-import initialState from './initialState';
+import {combineReducers} from 'redux';
+import catalog from './courseReducer';
 
-const appReducer = combineReducers({
+const rootReducer = combineReducers({
+  catalog
 });
-
-const resetStore = appReducer(initialState);
-
-const rootReducer = (state, action) => {
-  if (action.type === 'LOG_OUT') {
-    state = resetStore
-  }
-
-  return appReducer(state, action)
-}
 
 export default rootReducer;

@@ -1,12 +1,10 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
-import Header from './Header'
+import Header from './Header';
 
 class App extends React.Component {
-  componentDidMount() {
-    fetch("/catalog").then(response => response.json()).then(function(json) {
-        console.log(json);
-      });
+  constructor(props, context) {
+    super(props, context);
   }
 
   render() {
@@ -19,12 +17,4 @@ class App extends React.Component {
   }
 }
 
-App.propTypes = {
-};
-
-function mapStateToProps(state, ownProps) {
-  return {
-  };
-}
-
-export default connect(mapStateToProps)(App);
+export default App;
