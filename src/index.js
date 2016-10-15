@@ -6,9 +6,9 @@ import {Provider} from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import routes from './routes';
 import {loadCatalogFromJSON} from './actions';
-import './styles/styles.css'; 
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import '../node_modules/toastr/build/toastr.min.css';
+import './styles/styles.less'; 
+import '../node_modules/bootstrap/less/bootstrap.less';
+import '../node_modules/toastr/toastr.less';
 
 const store = configureStore();
 fetch("/bigcatalog").then(response => response.json()).then(function(json) {

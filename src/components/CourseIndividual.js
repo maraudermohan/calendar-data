@@ -3,10 +3,19 @@ import {connect} from 'react-redux';
 
 class CourseIndividual extends React.Component {
   render() {
+  	var style = {
+  		backgroundColor: this.props.bgColor
+  	};
     return (
-      <div>
-      <h1>{this.props.courseData['name']}</h1>
-      <h3>{this.props.courseData['author']}</h3>
+      <div className="course-box" data-id={this.props.courseData.id}>
+      	<div className="flex-container" style={style}>
+      		<h2>{this.props.courseData.name}</h2>
+      	</div>
+      	<div className="flex-container">
+      		<p className="author-text">{this.props.courseData.author}</p>
+      		<p className="day-text">{this.props.courseData.days.join(', ')}&nbsp;&nbsp;</p>
+	      	<p className="time-text">&nbsp;&nbsp;{this.props.courseData.time.join(' - ')}</p>
+      	</div>
       </div>
     );
   }

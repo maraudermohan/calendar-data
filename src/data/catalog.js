@@ -19,7 +19,8 @@ module.exports = {
          "timeIndex":[
             13,
             15
-         ]
+         ],
+         "selected":true
       },
       {
          "id":101,
@@ -103,7 +104,8 @@ module.exports = {
          "timeIndex":[
             10,
             11
-         ]
+         ],
+         "selected":true
       },
       {
          "id":105,
@@ -164,7 +166,8 @@ module.exports = {
          "timeIndex":[
             13,
             15
-         ]
+         ],
+         "selected":true
       },
       {
          "id":108,
@@ -206,7 +209,8 @@ module.exports = {
          "timeIndex":[
             11,
             12
-         ]
+         ],
+         "selected":true
       }
    ]
 }

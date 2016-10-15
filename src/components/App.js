@@ -9,10 +9,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid">
+      <main>
         <Header />
         {this.props.children}
-      </div>
+      </main>
     );
   }
 }
