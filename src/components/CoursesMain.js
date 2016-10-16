@@ -18,6 +18,7 @@ class CoursesMain extends React.Component {
 	componentDidUpdate() {
 		this.calcCourseContainerWidth();
 		this.attachEventHandlersCourseContainers();
+
 	}
 
 	attachEventHandlersCourseContainers() {

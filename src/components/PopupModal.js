@@ -28,31 +28,30 @@ class PopupModal extends React.Component {
 			return ['This Course will be removed from your schedule. Are you sure?',
 					this.submitHandlerSelectedCourses.bind(this)];
 		} else {
+			var newCalendar = timeConflictCalculator(this.props.catalog,this.props.currentSelection);
 			var str = '',
 				id1 = this.props.currentSelection.currentCourse.id;
-				console.log(this.state.newCalendar);
-			/*if(this.state.newCalendar.day1.filter(value => { if(value.id === id1){ return value.leftConflicts.length + value.rightConflicts.length;}}).length) {
+			if(newCalendar.day1.filter(value => { if(value.id === id1){ return value.leftConflicts.length + value.rightConflicts.length;}}).length) {
 				str += 'Monday ';
 			} 
-			if(this.state.newCalendar.day2.filter(value => { if(value.id === id1){ return value.leftConflicts.length + value.rightConflicts.length;}}).length) {
+			if(newCalendar.day2.filter(value => { if(value.id === id1){ return value.leftConflicts.length + value.rightConflicts.length;}}).length) {
 				str += 'Tuesday ';
 			}
-			if(this.state.newCalendar.day3.filter(value => { if(value.id === id1){ return value.leftConflicts.length + value.rightConflicts.length;}}).length) {
+			if(newCalendar.day3.filter(value => { if(value.id === id1){ return value.leftConflicts.length + value.rightConflicts.length;}}).length) {
 				str += 'Wednesday ';
 			}
-			if(this.state.newCalendar.day4.filter(value => { if(value.id === id1){ return value.leftConflicts.length + value.rightConflicts.length;}}).length) {
+			if(newCalendar.day4.filter(value => { if(value.id === id1){ return value.leftConflicts.length + value.rightConflicts.length;}}).length) {
 				str += 'Thursday ';
 			}
-			if(this.state.newCalendar.day5.filter(value => { if(value.id === id1){ return value.leftConflicts.length + value.rightConflicts.length;}}).length) {
+			if(newCalendar.day5.filter(value => { if(value.id === id1){ return value.leftConflicts.length + value.rightConflicts.length;}}).length) {
 				str += 'Friday ';
-			}*/
+			}
 			if(str.length) {
 				str = "Time conflict found on " + str.split(' ').filter(x => !!x).join(', ');
 				str += ". Do you still want to add?";
 			} else {
 				str = 'This course will be added to your schedule. Are you sure?';
 			}
-			console.log(str);
 			return [str, this.submitHandlerAvailableCourses.bind(this)];
 		}
 	}
