@@ -5,25 +5,27 @@ export const loadCatalogFromJSON = (content) => {
 	};
 }
 
-export const removeCourseFromSelection = (content) => {
+export const removeCourseFromSelection = (content, newCalendar) => {
 	return {
 		type: 'REMOVE_COURSE_FROM_SELECTION',
-		content
+		content,
+		newCalendar
 	};
 }
 
-export const addCourseToSelection = (content) => {
+export const addCourseToSelection = (content, newCalendar) => {
 	return {
 		type: 'ADD_COURSE_TO_SELECTION',
-		content
+		content, 
+		newCalendar
 	};
 }
 
-export const pickCourseToSelectOrDeselect = (content, task) => {
+export const pickCourseToSelectOrDeselect = (currentCourse, currentTask) => {
 	return {
 		type: 'PICK_COURSE_TO_SELECT_OR_DESELECT',
-		content,
-		task
+		currentCourse,
+		currentTask
 	};
 }
 

@@ -1,10 +1,12 @@
 import {combineReducers} from 'redux';
 import catalog from './catalogReducer';
-import timeIndex from './timeIndexReducer';
+import calendarModel from './calendarReducer';
+import currentSelection from './currentSelectionReducer';
 
 const rootReducer = combineReducers({
   catalog,
-  timeIndex
+  calendarModel,
+  currentSelection
 });
 
 export default rootReducer;

@@ -8,11 +8,11 @@ import $ from 'jquery';
 class CoursesMain extends React.Component {
 	constructor(props, context) {
 		super(props, context);
-		this.state = {
-			popup: '',
-			type: '',
-			course: []
-		}
+	}
+
+	componentDidMount() {
+		this.calcCourseContainerWidth();
+		this.attachEventHandlersCourseContainers();
 	}
 
 	componentDidUpdate() {
@@ -33,12 +33,12 @@ class CoursesMain extends React.Component {
 
 	assignTaskForPickedCourse(event) {
 		var task = (event.currentTarget.closest(".selected-courses"))? 'Remove' : 'Add';
-		var course = this.props.catalog.filter(value => value['id'] == $(event.currentTarget).attr('data-id'))[0];
+		var course = this.props.catalog.find(value => value['id'] == $(event.currentTarget).attr('data-id'));
 		this.props.dispatch(actions.pickCourseToSelectOrDeselect(course, task));
 	}
 
 	renderPopUpModal() {
-		if(this.props.timeIndex.currentTask) {
+		if(this.props.currentSelection.currentTask) {
 			return <PopupModal />;
 		}
 	}
@@ -56,7 +56,6 @@ class CoursesMain extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.timeIndex);
 		return (
 			<div className="courses-page">
 				{this.renderPopUpModal()}
@@ -77,13 +76,15 @@ class CoursesMain extends React.Component {
 
 CoursesMain.propTypes = {
 	catalog: PropTypes.array.isRequired,
-	timeIndex: PropTypes.object.isRequired
+	calendarModel: PropTypes.object.isRequired,
+	currentSelection: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
   return {
     catalog : state.catalog,
-    timeIndex : state.timeIndex
+    calendarModel : state.calendarModel,
+    currentSelection : state.currentSelection
   };
 }
 export default connect(mapStateToProps)(CoursesMain);
