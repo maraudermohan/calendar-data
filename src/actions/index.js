@@ -21,11 +21,18 @@ export const addCourseToSelection = (content, newCalendar) => {
 	};
 }
 
-export const pickCourseToSelectOrDeselect = (currentCourse, currentTask) => {
+export const pickCourseToCurrentSelection = (currentCourse, currentTask) => {
 	return {
-		type: 'PICK_COURSE_TO_SELECT_OR_DESELECT',
+		type: 'PICK_COURSE_TO_CURRENT_SELECTION',
 		currentCourse,
 		currentTask
+	};
+}
+
+export const updateNameInCalendarModel = (name) => {
+	return {
+		type: 'UPDATE_NAME_IN_CALENDAR_MODEL',
+		name
 	};
 }
 

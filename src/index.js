@@ -11,10 +11,11 @@ import '../node_modules/bootstrap/less/bootstrap.less';
 import '../node_modules/toastr/toastr.less';
 
 const store = configureStore();
-fetch("/bigcatalog").then(response => response.json()).then(function(json) {
+//Ajax calls to load the catalog JSON into REDUX STORE, when the app initiates
+fetch("/catalog").then(response => response.json()).then(function(json) {
 	store.dispatch(loadCatalogFromJSON(json.courses));
 });
-fetch("/catalog").then(response => response.json()).then(function(json) {
+fetch("/bigcatalog").then(response => response.json()).then(function(json) {
 	console.log("Store Initiated");
 	store.dispatch(loadCatalogFromJSON(json.courses));
 });

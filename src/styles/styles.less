@@ -56,11 +56,81 @@ header {
 }
 .courses-page {
 	width: 100%;
+	height: auto;
+	min-height: 100%;
 	background-color: whitesmoke;
 	padding: 60px 0; 
-	> h2 {
-		margin: 0 0 0 2%; 
-		padding: 20px 0 5px 0; 
+	position: relative;
+	left: -100%;
+	> div {
+		> h2 {
+			width: 94%;
+			margin: 0 3%; 
+			border-bottom: 0;
+			padding: 20px 10px 5px 10px; 
+			.glyphicon {
+				float: right;
+			}
+			&.closed {
+				border-bottom: 1px solid grey;
+			}
+			&:hover {
+				color: dodgerblue;
+			}
+		}
+		width: 100%;
+		-webkit-transition: width 0.5s;
+		-moz-transition: width 0.5s;
+		transition: width 0.5s;
+	}
+	aside {
+	    position: fixed;
+	    opacity: 0;
+	    width: 30%;
+	    height: calc(~'100% - 50px');
+	    top: 0;
+	    right: 0;
+	    display: none;
+	    -webkit-transition: opacity 0.5s;
+		-moz-transition: opacity 0.5s;
+		transition: opacity 0.5s;
+	    padding: 10px 20px 20px 20px;
+	    margin: 50px 0 0 0;
+	    background-color: white;
+		box-shadow: -1px 1px 3px rgba(0,0,0,0.5);
+		-webkit-flex-direction : column;
+		flex-direction : column;
+		.upcoming-session {
+			height: 31%;
+			-webkit-flex-direction : column;
+			flex-direction : column;
+			-webkit-justify-content: space-between;
+			justify-content: space-between;
+			-webkit-align-items: flex-start;
+			align-items: flex-start;
+			border-bottom: 2px solid dodgerblue;
+			h3 {
+				margin: 0;
+				padding: 25px 0;
+			}
+			h4 {
+				margin: 0;
+			}
+		}
+		.day-title {
+			width: 100%;
+			color: dodgerblue;
+		    text-align: center;
+		}
+	}
+	&.selected {
+		> div {
+			width: 70%;
+		}
+		aside {
+			display: block;
+			opacity: 1;
+		}
 	}
 }
 #popup-modal {
@@ -75,9 +145,6 @@ header {
 	justify-content: center;
 	-webkit-align-items: center;
 	align-items: center;
-	-webkit-transition: opacity 0.5s;
-	-moz-transition: opacity 0.5s;
-	transition: opacity 0.5s;
 	#message-box {
 		width:50%;
 		height: 40%;
@@ -98,15 +165,25 @@ header {
 			padding: 30px; 
 			text-shadow: 0px 0px 3px rgba(0,0,0,0.5);
 		}
+		h4 {
+			text-align: center;
+			span {
+			    color: red;
+    			font-size: 25px;
+			}
+		}
 		.btn {
 			padding: 6px 30px;
 			border-radius: 25px;
 		}
 	}
 }
-.course-container {
-	width: 65%;
-	margin-left: 3%;
+.for-bg-color, .glyphicon-container {
+	display: none;
+}
+.courses-page .course-container {
+	width: 94%;
+	margin: 0 3%;
 	&.selected-courses {
 		height: 200px;
 		overflow: scroll;
@@ -142,6 +219,25 @@ header {
 			.author-text {
 				display: none;
 			}
+			.course-box-content {
+				width: 100%;
+			}
+			&:hover {
+				position: relative;
+				border: 1px solid crimson;
+				.glyphicon-container {
+					position: absolute;
+					right: 0px;
+					top: 0px;
+					display: block;
+					width: 80px;
+				    background-color: crimson;
+					color: white;
+					font-size: 50px;
+					line-height: 195px;
+					text-align: center;
+				}
+			}
 		}
 	}
 	&.available-courses .course-box {
@@ -151,6 +247,27 @@ header {
 		.flex-container {
 			.day-text {
 				margin-left: auto;
+			}
+		}
+		.for-bg-color {
+			display: block;
+			width: 40px;
+			height: 100%
+		}
+		.course-box-content {
+			width: 100%;
+		}
+		&:hover {
+			height: 84px;
+			border: 2px solid dodgerblue;
+			.glyphicon-container {
+				display: block;
+				width: 80px;
+			    background-color: dodgerblue;
+				color: white;
+				font-size: 50px;
+				line-height: 85px;
+				text-align: center;
 			}
 		}
 	}
@@ -179,10 +296,58 @@ header {
 	height: 100%;
 	background-color: whitesmoke;
 	padding: 55px 0 0 0; 
+	-webkit-align-items: flex-start;
+	align-items: flex-start;
+	position: relative;
+	right: -100%;
+	> .calendar-left {
+		height: 100%;
+		width: 25%;
+		input {
+		    font-size: 30px;
+		    font-weight: 400;
+		    line-height: 33px;
+		    margin: 0;
+		    width: 100%;
+		    border: 0;
+		    padding: 0;
+		    color: #363636;
+		    background-color: transparent;
+		    &:focus {
+		    	outline: none;
+		    	color: dodgerblue;
+		    }
+		}
+		hr {
+			border-color: black;
+			margin: 5px 0 20px 0;
+		}
+		.calendar-title {
+			width: 100%;
+			padding: 20px 15px 0 15px; 
+			.glyphicon {
+				opacity: 0;
+				font-size: 28px;
+			}
+			&:hover {
+				input {
+					color: dodgerblue;
+				}
+				color: dodgerblue;
+				font-style: italic;
+				.glyphicon {
+					opacity: 1;
+				}
+			}
+		}
+	}
+	> div:last-child {
+		width: 75%;
+		height: 100%;
+	}
 	.week-container {
-	    width: 75%;
-	    height: calc(~'100% - 32px');
-	    margin-left: 25%;
+	    width: 100%;
+	    height: calc(~'100% - 42px');
 	    .calendar-individual {
 			width: calc(~'20% - 4px');
 			height: 100%;
@@ -190,7 +355,7 @@ header {
 			background-color: white;
 			position: relative;
 			border: 1px solid whitesmoke;
-			box-shadow: 0px 0px 3px rgba(0,0,0,0.5);
+			box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 			ul {
 				list-style-type: none;
 				height: 100%;
@@ -215,19 +380,48 @@ header {
 				    height: 32px;
 				}
 			}
-			.class-entry {
+			.course-in-calendar {
 				position: absolute;
 				margin: 2px;
-			    border: 1px solid black;
+			    border: 1px solid grey;
 			    border-radius: 10px;
 			    padding: 5px;
+		        white-space: nowrap;
+			    text-overflow: ellipsis;
+			    overflow: hidden;
+			    color: white;
+			    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+			    &:hover {
+					border: 2px solid grey;
+					box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+				}
+			}
+		} 
+		ul.timeslot-names {
+			list-style-type: none;
+			padding: 0px;
+			height: 100%;
+			font-size: 12px;
+			line-height: 12px; 
+			-webkit-flex-direction: column;
+			flex-direction: column;
+			&:first-child {
+				text-align: right;
+			}
+			&:last-child {
+				text-align: left;
+			}
+			li {
+				height: 11%;
+				position: relative;
+				top: -6px;
 			}
 		}
 	}
 	.week-titles {
 		list-style-type: none;
-		width: 75%;
-	    margin-left: 25%;
+		width: calc(~'100% - 31px');
+	    margin-left: 31px;
 		li {
 			width: 20%;
 			background-color: dodgerblue;
@@ -237,6 +431,63 @@ header {
 		    padding: 8px 0;
 		    height: 32px;
 		    margin: 0 1px; 
+		}
+	}
+	.course-container {
+		width: 100%;
+		margin: 0%;
+		&.selected-courses {
+			max-height: calc(~'100% - 90px');
+			overflow: scroll;
+			> .flex-container {
+				-webkit-flex-direction: column;
+				flex-direction: column;
+				-webkit-align-items: center;
+				align-items: center;
+
+			}
+			.course-box {
+				width: 95%;
+				margin: 5px 2px;
+				border-top-right-radius: 25px;
+				border-bottom-right-radius: 25px;
+				overflow: hidden;
+				h2 , h3, h4 , h1 {
+					width: 100%;
+					color: white;
+					margin: 0; 
+					padding: 10px 5px;
+			        white-space: nowrap;
+				    text-overflow: ellipsis;
+				    overflow: hidden;
+					text-shadow: 0px 0px 3px rgba(0,0,0,0.5);
+				}
+				h2 {
+					font-size: 25px;
+				}
+				.flex-container:last-child {
+					display: none;
+				}
+				.course-box-content {
+					width: 100%;
+				}
+				&:hover {
+					border: 1px solid crimson;
+					.course-box-content {
+						width: calc(~'100% - 70px');
+					}
+					.glyphicon-container {
+					    display: block;
+					    width: 70px;
+					    height: 47px;
+					    background-color: crimson;
+					    color: white;
+					    font-size: 35px;
+					    line-height: 54px;
+					    text-align: center;
+					}
+				}
+			}
 		}
 	}
 }

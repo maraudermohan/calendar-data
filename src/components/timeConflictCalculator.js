@@ -1,3 +1,4 @@
+//This function duplicates the current calendar model and modifies it with conflicts
 export function timeConflictCalculator(catalog, currentSelection) {
 	var calenderModel = {
 				'day1' : [],
@@ -26,7 +27,9 @@ export function timeConflictCalculator(catalog, currentSelection) {
 	return calenderModel;
 }
 
+//Modifies calendar model, one-day at a time
 function modifyDayArray(dayArray) {
+	//Using quicksort to reorder the selected courses using Start-time & duration
 	function quickSort(left,right) {
 	    var i = left, j = right,
 	        temp;
@@ -46,6 +49,8 @@ function modifyDayArray(dayArray) {
 	    if(i < right) quickSort (i, right);
 	}
 
+	//Compares each course's time data with the ones before it in the quick-sorted list
+	//Identifies a conflict and adds it either in 'left-conflicts' or 'right-conflicts' sub array
 	function identifyConflicts(currentIndex) {
 	  	dayArray[currentIndex].leftConflicts=[];
 	  	dayArray[currentIndex].rightConflicts=[];
@@ -82,6 +87,7 @@ function modifyDayArray(dayArray) {
 	  }
 	}
 
+	//Removing entries from right conflicts array if they donot have conflicts with each other
 	function cleanupRightConflicts(index) {
 	    for(var i = 0; i < dayArray[index].rightConflicts.length;i++) {
 	      if ((i != dayArray[index].rightConflicts.length-1)&&([...dayArray[dayArray[index].rightConflicts[i+1]].rightConflicts,...dayArray[dayArray[index].rightConflicts[i+1]].leftConflicts].indexOf(dayArray[index].rightConflicts[i]) == -1)) {

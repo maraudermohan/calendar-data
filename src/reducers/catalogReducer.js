@@ -29,6 +29,7 @@ export default function catalogReducer(state = initialState.catalog, action) {
   }
 }
 
+//A random color generator to save a unique color for each course 
 const getRandomColor = () => {
 	var letters = '0123456789ABCDEF';
 	var color = '#';
