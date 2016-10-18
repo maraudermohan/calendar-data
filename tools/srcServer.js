@@ -8,7 +8,7 @@ import * as BigCatalog from '../src/data/bigCatalog';
 
 /* eslint-disable no-console */
 
-const port = 3000;
+var port = process.env.PORT || 3000;
 const app = express();
 const compiler = webpack(config);
 
