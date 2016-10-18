@@ -121,7 +121,7 @@ class CoursesMain extends React.Component {
 				}
 				if((dayItr == _day)&&(hourItr == _hour)) bool = false;
 			}
-			return <aside className="flex-container hidden-xs hidden-md">
+			return <aside className="flex-container hidden-xs hidden-sm">
 						<h3 className="day-title">Upcoming Session(s)</h3>
 						{arr.map(this.renderIndividualUpcomingCourse)}
 					</aside>;
