@@ -245,7 +245,7 @@ header {
 		height: 80px;
 		margin: 4px 1px;
 		.flex-container {
-			.day-text {
+			.day-text , .day-text-for-mobile{
 				margin-left: auto;
 			}
 		}
@@ -490,4 +490,157 @@ header {
 			}
 		}
 	}
+}
+/* ----- MEDIA QUERY - PHONE & Tablets portrait ----- */
+@media screen 
+and (min-width: 320px) 
+and (max-width: 992px)  {
+	header {
+		padding: 0 10px;
+		nav a {	
+			font-size: 1.2em;
+			padding: 11px 10px;
+		}
+		h1, h2, h3, h4 {
+			font-size: 1.2em;
+		}
+	}
+	.courses-page {
+		> div > h2 {
+			font-size: 24px;
+			padding: 20px 0px 5px 0px;
+		}	
+		&.selected  > div {
+			width: 100%;
+		}
+	}
+	.courses-page .course-container {
+		&.selected-courses {
+			height: auto;
+			border: 0;
+			box-shadow: none;
+			padding-bottom: 40px;
+			> .flex-container {
+				width: 100% !important;
+				height: auto;
+				-webkit-flex-direction: column;
+				flex-direction: column;
+			}
+			.course-box {
+				width: 100%;
+				height: 100px;
+				margin: 4px 4px;
+				h2 , h3, h4 , h1 {
+					width: auto;
+					font-size: 24px;
+				}
+				.flex-container:first-child {
+					height: 62px;
+				}
+				.course-box-content {
+					width: 100%;
+				}
+				&:hover {
+					.glyphicon-container {
+						font-size: 40px;
+						line-height: 98px;
+					}
+				}
+			}
+		}
+		&.available-courses .course-box {
+			h1, h2 , h3 , h4 {
+				height: 52px;
+			}
+			.author-text {
+				width: 120px;
+		        white-space: nowrap;
+			    text-overflow: ellipsis;
+			    overflow: hidden;
+			}
+			height: 100px;
+			.for-bg-color {
+				width: 20px;
+			}
+			.course-box-content h2 {
+				font-size: 24px;
+			}
+			&:hover {
+				height: 104px;
+				.glyphicon-container {
+					width: 60px;
+					font-size: 40px;
+					line-height: 108px;
+				}
+			}
+		}
+	}
+	#popup-modal {
+		#message-box {
+			width:90%;
+			height: 50%;
+			h4 {
+				padding: 0 10px;
+			}
+			.btn {
+				font-size: 16px;
+				padding: 6px 50px;
+			}
+		}
+	}
+	.calendar-page {
+		width: 100%;
+		height: 100%;
+		-webkit-flex-direction: column;
+		flex-direction: column;
+		-webkit-align-items: flex-start;
+		align-items: flex-start;
+		position: relative;
+		right: -100%;
+		> .calendar-left {
+			height: auto;
+			width: 100%;
+			input {
+			    font-size: 24px;
+			    line-height: 24px;
+			}
+			hr {
+				margin: 5px 0 10px 0;
+			}
+			.calendar-title {
+				width: 100%;
+				padding: 10px 15px 0 10px; 
+				.glyphicon {
+					opacity: 1;
+					font-size: 24px;
+				}
+			}
+		}
+		> div:last-child {
+			width: 100%;
+			height: calc(~'100% - 50px');
+			padding-right: 5px;
+		}
+		.week-container {
+		    width: 100%;
+		    height: calc(~'100% - 42px');
+			.course-in-calendar {
+				font-size: 10px;
+			}
+			ul.timeslot-names {
+				font-size: 10px;
+			}
+		}
+		.week-titles {
+			width: calc(~'100% - 25px');
+		    margin-left: 25px;
+			li {
+			    font-size: 12px;
+			}
+		}
+		.course-container {
+			display: none;
+		}
+	}
+
 }

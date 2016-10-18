@@ -93,7 +93,13 @@ class CoursesMain extends React.Component {
 		if(this.props.catalog.filter(value => value.selected).length) {
 			var _date = new Date();
 			var _day = _date.getDay();
-			var _hour = _date.getHours();
+			var _hour = _date.getHours()+1;
+			if(_hour < 7) {
+				_hour = 7;
+			} else if (_hour > 14) {
+				_hour = 7;
+				_day++;
+			}
 			if((_day ==0)||(_day==6)) {
 				_day = 1;
 				_hour = 7;
@@ -115,7 +121,7 @@ class CoursesMain extends React.Component {
 				}
 				if((dayItr == _day)&&(hourItr == _hour)) bool = false;
 			}
-			return <aside className="flex-container">
+			return <aside className="flex-container hidden-xs hidden-md">
 						<h3 className="day-title">Upcoming Session(s)</h3>
 						{arr.map(this.renderIndividualUpcomingCourse)}
 					</aside>;

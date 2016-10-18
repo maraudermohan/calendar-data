@@ -33,8 +33,9 @@ class CourseIndividual extends React.Component {
         	{this.renderCourseName()}
         	<div className="flex-container">
         		<p className="author-text">{this.props.courseData.author}</p>
-        		<p className="day-text">{this.props.courseData.days.join(', ')}&nbsp;&nbsp;</p>
-  	      	<p className="time-text">&nbsp;&nbsp;{this.props.courseData.time.join(' - ')}</p>
+        		<p className="day-text hidden-xs hidden-sm">{this.props.courseData.days.join(', ')}&nbsp;&nbsp;</p>
+            <p className="day-text-for-mobile hidden-md hidden-lg">{this.props.courseData.days.map(value => value[0]+value[1]).join(', ')}&nbsp;:</p>
+  	      	<p className="time-text">&nbsp;{this.props.courseData.time.join('-')}</p>
         	</div>
         </div>
         {this.renderGlyphiconContainer()}

@@ -1,7 +1,7 @@
 export default {
 	catalog: [],
 	calendarModel: {
-				'name' : 'My Course Calendar',
+				'name' : "Mohan's Calendar",
 				'day1' : [],
 				'day2' : [],
 				'day3' : [],
