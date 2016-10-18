@@ -61,7 +61,11 @@ class CalendarMain extends React.Component {
 				    		{this.props.catalog.map(this.renderSelectedCourses)}
 				    	</div>
 				  	</div>;
-		}
+		} else {
+			return 	<div className="course-container selected-courses">
+						<h3 style={{textAlign: 'center'}}>Course list is empty.<br /> Please start by selecting desired courses!</h3>
+				  	</div>;
+		} 
 	}
 
 	renderSelectedCourses(value, index) {

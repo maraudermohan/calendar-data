@@ -33,8 +33,11 @@ export default function calendarReducer(state = initialState.calendarModel, acti
       return state;
   }
 }
+
+//This function is not executed now
+//Just a working function, with a placeholder URL
 function simulateAjaxCall(newObj) {
-  var placeholderURL = "/";
+  var placeholderURL = "/updateCalendarAPI"; //fake url
   fetch(placeholderURL, {
           method: "POST",
           headers: {
