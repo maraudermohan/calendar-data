@@ -6,8 +6,6 @@ import open from 'open';
 import * as Catalog from '../src/data/catalog';
 import * as BigCatalog from '../src/data/bigCatalog';
 
-/* eslint-disable no-console */
-
 var port = process.env.PORT || 3000;
 const app = express();
 const compiler = webpack(config);

@@ -1,9 +1,10 @@
 {
   "name": "calendar",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "babel-node tools/srcServer.js"
+    "start": "babel-node tools/srcServer.js",
+    "test": "mocha tools/testSetup.js \"src/**/*.test.js\""
   },
   "dependencies": {
     "babel-polyfill": "6.8.0",
@@ -43,6 +44,9 @@
     "webpack": "1.13.0",
     "webpack-dev-middleware": "1.6.1",
     "webpack-hot-middleware": "2.10.0",
-    "isomorphic-fetch": "2.2.1"
+    "isomorphic-fetch": "2.2.1",
+    "mocha": "3.1.2",
+    "chai": "3.5.0",
+    "chai-http": "3.0.0"
   }
 }

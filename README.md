@@ -2,30 +2,41 @@
 
 ##Installation
 1. **Install [Node 6](https://nodejs.org)**. Need to run multiple versions of Node? Use [nvm](https://github.com/creationix/nvm) or [nvm-windows](https://github.com/coreybutler/nvm-windows)
-2. **Make sure you're in the directory you just created.** - `cd calendar-data`
+2. **Make sure you're in the root directory.** - `cd calendar-data`
 3. **Install Node Packages.** - `npm install`
 4. **Run the app.** - `npm start`
-This will run the automated build process, start up a webserver, and open the application in your default browser. When doing development with this kit, this command will continue watching files all your files. Every time you hit save the code is rebuilt, linting runs, and tests run automatically. Note: The -s flag is optional. It enables silent mode which suppresses unnecessary messages during the build.
+This will run the automated build process, start up a webserver, and open the application in your default browser.
 5. **App will load in [browser](http://localhost:3000/)**
+6. Open another tab in terminal and run - 'npm run test'
+This will show the results of the mocha tests I setup.
 
-##Summary
-* didnt use lodash/underscore, achieved it using ES6 methods
-* LESS built in Node, so chose LESS over SASS
-* most complex code - identifying time conflict and calculating respective css changes
-* explanation of modified calendar model
-* Used Quick sort, since time complexity O(n log n) and space complexity O(1)
-* Explain redux-immutable, middleware, thunk?
-* catalog, big catalog into js files , also edited the ID's
-* simulate ajax call for catalog n calendar json (calendarReducer)
-* presentation vs container components
-* additional notes : concentrated on design
+##Engineering & Design decisions
+* I really enjoyed working on this challenging-yet-fun assignment.
+* Used ReactJS as I find it very efficient, especially to dynamically re-render the DOM.
+* Chose Redux, instead of using React's unidirectional data flow to avoid error prone spaghetti code.
+* Redux follows the flux pattern: A single store for all data; Only pure functions are allowed to change the data;
+* Installed redux-immutable-state-invariant to make sure the store data is not mutated between or outside redux dispatches.
+* Wrote components in JSX, as React is most efficient with JSX. 
+* As JSX extends ES2015, I have added the Babel and its related packages to transpile it back to ES5.
+* Chose Webpack over Grunt for two reasons - 
+** I personally am more familiar with Webpack, than Grunt.
+** I went with the Module bundler , instead of the task runner.I find Webpack's loader support really advantageous.
+* I needed a CSS-preprocessor because to maintain my complex css code. I chose LESS over SASS, as it is built in Node.
+* Most interesting part of the assignment was the code that identifies the time conflicts.
+* I used a modified version of Quick sort [really efficient with O(N Log N) complexity] to sort all time-indices of selected courses and compare the smaller-duration with longer-duration to identify conflicts.
+* Feature enhancement : User is warned about the time conflict, but is allowed to still select the course, the selected courses with conflicts are displayed accordingly. 
+* I use my modified calendar model, which contains the time conflicts resolutions, to calculate the css-changes to display the time-conflicts.
+* Feature enhancement : Added a 'Upcoming session' module that displays the next 3 sessions from current time.
+* Used Mocha for testing, along with Chai for the assertion support.
+* Wrote testcases for all data flow from server through Redux : Catalog JSON -> Store initiation -> Actions triggered -> Reducers updating a copy of the state -> RootReducer back to the store.
+* Please find below the list of packages used and their purposes in the project. 
 
 ##Production Dependencies
 | **Dependency** | **Use** |
 |----------|-------|
 |babel-polyfill | Polyfill for Babel features that cannot be transpiled |
 |bootstrap|CSS Framework|
-|jquery|Only used to support toastr|
+|jquery|Only used to support toastr & event handling|
 |react|React library |
 |react-dom|React library for DOM rendering |
 |react-redux|Redux library for connecting React components to Redux |
@@ -63,3 +74,6 @@ This will run the automated build process, start up a webserver, and open the ap
 |webpack-dev-middleware| Adds middleware support to webpack |
 |webpack-hot-middleware| Adds hot reloading to webpack |
 |isomorphic-fetch| Fetch for node and Browserify |
+|mocha| test framework for node.js |
+|chai| assertion library used with Mocha |
+|chai-http| Chai extension for tests with http |
