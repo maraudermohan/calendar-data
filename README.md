@@ -22,7 +22,7 @@ This will show the results of the mocha tests I setup.
 * I needed a CSS-preprocessor to maintain my complex css code. I chose LESS over SASS, as it is built in Node.
 * Most interesting part of the assignment was the code that identifies the time conflicts.
 * I used a modified version of Quick sort [really efficient with O(N Log N) complexity] to sort all time-indices of selected courses and compare the smaller-duration with longer-duration to identify conflicts.
-* Feature enhancement : User is **warned about the time conflict, but is allowed to still select the course**, the selected courses with conflicts are displayed accordingly. 
+* Feature enhancement : User is **warned about the time conflict, but is still allowed to confirm the course selection**, the selected courses with conflicts are displayed accordingly. 
 * I use my modified calendar model, which contains the time conflicts resolutions, to calculate the css-changes to display the time-conflicts.
 * Feature enhancement : Added a **'Upcoming session'** module that displays the next 3 sessions from current time.
 * Used Mocha for testing, along with Chai for the assertion support.
