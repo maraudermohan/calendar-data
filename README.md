@@ -7,12 +7,12 @@
 4. **Run the app.** - `npm start`
 This will run the automated build process, start up a webserver, and open the application in your default browser.
 5. **App will load in [browser](http://localhost:3000/)**
-6. Open another tab in terminal and run - 'npm run test'
+6. Open another tab in terminal and run - `npm run test`
 This will show the results of the mocha tests I setup.
 
 ##Engineering & Design decisions
 * I really enjoyed working on this challenging-yet-fun assignment.
-* Used ReactJS as I find it very efficient, especially to dynamically re-render the DOM.
+* Used ReactJS as I find it very efficient, especially in dynamically re-rendering the DOM.
 * Chose Redux, instead of using React's unidirectional data flow to avoid error prone spaghetti code.
 * Redux follows the flux pattern: A single store for all data; Only pure functions are allowed to change the data;
 * Installed redux-immutable-state-invariant to make sure the store data is not mutated between or outside redux dispatches.
