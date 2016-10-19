@@ -13,15 +13,13 @@ This will show the results of the mocha tests I setup.
 ##Engineering & Design decisions
 * I really enjoyed working on this challenging-yet-fun assignment.
 * Used ReactJS as I find it very efficient, especially in dynamically re-rendering the DOM.
-* Chose Redux, instead of using React's unidirectional data flow to avoid error prone spaghetti code.
+* Chose Redux, instead of using React's unidirectional-data-flow, to avoid error prone spaghetti code.
 * Redux follows the flux pattern: A single store for all data; Only pure functions are allowed to change the data;
 * Installed redux-immutable-state-invariant to make sure the store data is not mutated between or outside redux dispatches.
 * Wrote components in JSX, as React is most efficient with JSX. 
 * As JSX extends ES2015, I have added the Babel and its related packages to transpile it back to ES5.
-* Chose Webpack over Grunt for two reasons - 
-** I personally am more familiar with Webpack, than Grunt.
-** I went with the Module bundler , instead of the task runner.I find Webpack's loader support really advantageous.
-* I needed a CSS-preprocessor because to maintain my complex css code. I chose LESS over SASS, as it is built in Node.
+* Chose Webpack over Grunt for two reasons - a) I personally am more familiar with Webpack, than Grunt. b) I went with the Module bundler , instead of the task runner. I find Webpack's loader support really advantageous.
+* I needed a CSS-preprocessor to maintain my complex css code. I chose LESS over SASS, as it is built in Node.
 * Most interesting part of the assignment was the code that identifies the time conflicts.
 * I used a modified version of Quick sort [really efficient with O(N Log N) complexity] to sort all time-indices of selected courses and compare the smaller-duration with longer-duration to identify conflicts.
 * Feature enhancement : User is warned about the time conflict, but is allowed to still select the course, the selected courses with conflicts are displayed accordingly. 
